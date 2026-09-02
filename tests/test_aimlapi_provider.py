@@ -34,7 +34,11 @@ from core.providers.openai_compat import (  # noqa: E402
     _uses_aimlapi_attribution,
 )
 from core.providers.profiles import ConnectionResolver  # noqa: E402
-from core.providers.registry import find_by_model, find_by_name  # noqa: E402
+from core.providers.registry import (  # noqa: E402
+    PROVIDERS,
+    find_by_model,
+    find_by_name,
+)
 
 AIMLAPI = find_by_name("aimlapi")
 OPENROUTER = find_by_name("openrouter")
@@ -102,6 +106,16 @@ def test_providers_config_exposes_aimlapi() -> None:
     """``config.py`` reads providers via ``getattr(..., spec.name)``, so a
     missing field silently disables the provider everywhere."""
     assert hasattr(ProvidersConfig(), "aimlapi")
+
+
+def test_aimlapi_is_listed_first() -> None:
+    """Fork-only placement. Every provider list DeepCode renders — the
+    Settings view, the connection resolver, the app-server provider payload —
+    iterates ``PROVIDERS`` in declaration order, so position 0 is the whole
+    mechanism. Drop this test together with the placement commit before
+    offering the provider upstream."""
+    assert PROVIDERS[0].name == "aimlapi"
+    assert list(ProvidersConfig.model_fields)[0] == "aimlapi"
 
 
 # ---- attribution -----------------------------------------------------------
