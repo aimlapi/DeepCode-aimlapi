@@ -84,7 +84,7 @@ _DEFAULT_AIMLAPI_HEADERS = {
     "HTTP-Referer": "https://github.com/HKUDS/DeepCode",
     "X-Title": "DeepCode",
     "X-AIMLAPI-Source": "agent/deepcode",
-    "X-AIMLAPI-Partner-ID": "part_deepcode",
+    "X-AIMLAPI-Partner-ID": "part_CxcOejScJ3hI0O2cExWchiBy",
 }
 # Hosts that are actually AI/ML API. Attribution is keyed on the resolved
 # request origin rather than on the selected template, so a user who repoints

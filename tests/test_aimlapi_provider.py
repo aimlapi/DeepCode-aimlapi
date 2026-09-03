@@ -156,7 +156,7 @@ def test_headers_reach_the_client_without_clobbering_the_caller() -> None:
         extra_headers={"X-Title": "Mine", "X-Custom": "kept"},
     )
     sent = provider._client.default_headers
-    assert sent["X-AIMLAPI-Partner-ID"] == "part_deepcode"
+    assert sent["X-AIMLAPI-Partner-ID"] == "part_CxcOejScJ3hI0O2cExWchiBy"
     assert sent["X-AIMLAPI-Source"] == "agent/deepcode"
     # Merge, never assign: the caller's own value wins on a clash and their
     # unrelated headers survive.
