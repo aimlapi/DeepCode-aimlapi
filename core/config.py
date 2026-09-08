@@ -194,6 +194,7 @@ class ProvidersConfig(_Base):
     and adding the matching :class:`~core.providers.registry.ProviderSpec`.
     """
 
+    aimlapi: ProviderConfig = Field(default_factory=ProviderConfig)
     custom: ProviderConfig = Field(default_factory=ProviderConfig)
     openrouter: ProviderConfig = Field(default_factory=ProviderConfig)
     forge: ProviderConfig = Field(default_factory=ProviderConfig)
